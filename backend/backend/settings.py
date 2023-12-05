@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'crawlerapp',
     'rest_framework',
     'corsheaders',
+    'localflavor',
+    'user_registration'
 ]
 
 MIDDLEWARE = [

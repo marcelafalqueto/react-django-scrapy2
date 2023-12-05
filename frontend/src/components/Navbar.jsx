@@ -47,7 +47,7 @@ const Navbar = () => {
                 className="menu dropdown-content fixed z-10 p-2 shadow bg-base-100 rounded-box w-52 mt-4"
               >
                 <li>
-                  <Link to="/search">Busca</Link>
+                  {/* <Link to="/search">Busca</Link> */}
                 </li>
                 <li>
                   <Link to="/crawler">Crawler</Link>

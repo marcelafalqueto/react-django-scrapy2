@@ -1,28 +1,15 @@
-"""
-URL configuration for backend project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path, include
 # from django.conf.urls import urls
 from crawlerapp.views import *
-from crawlerapp import views
+from crawlerapp import views as crawlerapp_views
+from user_registration import views as user_registration_views
+from user_registration.views import *
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'tasks', views.ReactView, 'task')
+router.register(r'tasks', crawlerapp_views.ReactView, 'task')
+router.register(r'registrations', user_registration_views.UserRegistrationView, 'registration')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
