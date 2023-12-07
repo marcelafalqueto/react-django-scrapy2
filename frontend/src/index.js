@@ -14,6 +14,8 @@ import Profile from "./routes/Profile";
 import Notifications from "./routes/Notifications";
 import Crawler from './routes/Crawler';
 
+import Registration from "./routes/Registration";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,7 +39,10 @@ const router = createBrowserRouter([
         path: "searchdetails",
         element: <SearchDetails />,
       },
-      
+      {
+        path: "registration",
+        element: <Registration />,
+      },
       {
         path: "loginpage",
         element: <LoginPage />,

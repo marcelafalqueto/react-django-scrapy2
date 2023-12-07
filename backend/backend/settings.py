@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'localflavor',
-    'user_registration'
+    'user_registration',
+    'authentication',
 ]
 
 MIDDLEWARE = [
@@ -94,6 +95,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+AUTH_USER_MODEL = 'authentication.User'
 
 
 # Password validation

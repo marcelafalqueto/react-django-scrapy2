@@ -9,6 +9,7 @@ import Search from "./routes/Search";
 import SearchDetails from "./routes/SearchDetails";
 import LoginPage from "./routes/LoginPage";
 import Register from "./routes/Register";
+import Registration from "./routes/Registration";
 import ErrorPage from "./routes/ErrorPage";
 import Profile from "./routes/Profile";
 import Notifications from "./routes/Notifications";
@@ -24,7 +25,6 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-
       {
         path: "search",
         element: <Search />,
@@ -37,7 +37,6 @@ const router = createBrowserRouter([
         path: "searchdetails",
         element: <SearchDetails />,
       },
-      
       {
         path: "loginpage",
         element: <LoginPage />,
@@ -45,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "registration",
+        element: <Registration />,
       },
       {
         path: "profile",

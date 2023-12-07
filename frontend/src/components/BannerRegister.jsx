@@ -18,7 +18,7 @@ const BannerRegister = () => {
               Encontre imoveis de leilao no portal mais completo do Brasil!
             </p>
             <button className="btn btn-primary" type="button">
-              <Link to="/register">Faça parte</Link>
+              <Link to="/registration">Faça parte</Link>
             </button>
           </div>
         </div>

@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    const userData = {
+        email: email,
+        password: password
+    };
+
+    // Chamar a função que faz a requisição POST
+    login(userData);
+};
+
+
+  const login = async (userData) => {
+    try {
+      const response = await axios.post('http://localhost:8000/authentication/', userData, {
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
+      console.log(response.data);
+    } catch (error) {      console.error(error.response.data);    }
+  };
+
   return (
     <>
       <div className="hero min-h-screen bg-base-200">
@@ -15,36 +43,50 @@ const LoginPage = () => {
               <div className="form-control">
                 <span children="">
                   Não possui um acesso?
-                  <Link to="/register">
+                  <Link to="/registration">
                     <u> Cadastre-se</u>
                   </Link>{" "}
                 </span>
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="email"
-                  className="input input-bordered"
-                />
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">
-                    Receber chave por email
-                  </button>
-                </div>
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Chave de acesso</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="chave"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                {/* ----------email----------  */}
+                <form onSubmit={handleLogin}>
+                  <div className="form-control">
+                    <label className="label" htmlFor="email">
+                      <span className="label-text">E-mail</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Seu e-mail"
+                      className="input input-bordered"
+                      id="email"
+                      name="email"
+                      autoComplete="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      
+                    />
+                  </div>
+                  {/* ----------senha----------  */}
+                  <div className="form-control">
+                    <label className="label" htmlFor="password">
+                      <span className="label-text">Senha</span>
+                    </label>
+                    <input
+                      type="password"
+                      placeholder="Coloque sua senha"
+                      className="input input-bordered"
+                      id="password"
+                      name="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  {/* ----------botao----------  */}
+                  <div className="form-control mt-6">
+                    <button className="btn btn-primary" type="submit">
+                      Login
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

@@ -20,5 +20,5 @@ class UserRegistration(models.Model):
     password = models.CharField(max_length=128)
 
     def save(self, *args, **kwargs):
-        self.password = make_password(self.senha)
+        self.password = make_password(self.password)
         super(UserRegistration, self).save(*args, **kwargs)
